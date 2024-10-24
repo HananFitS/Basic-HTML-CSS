@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doofenshmirtz Lab - Virtual Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Section -->
+    <section class="welcome-page">
+        <div class="welcome-content">
+            <h1>WELCOME TO</h1>
+            <h2>DR. DOOFENSHMIRTZ LAB</h2>
+            <p>Lab ini berguna untuk menentukan suatu larutan itu basa atau asam.</p>
+            <p>Terdiri dari beberapa pilihan indikator dan juga larutan yang dapat dicoba.</p>
+            <button onclick="scrollToLab()">Masuk ke Lab Virtual</button>
+        </div>
+    </section>
+
+    <!-- Virtual Lab Section -->
+    <section class="lab-page" id="labPage">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="navbar-title">Doofenshmirtz Lab</div>
+                <button onclick="scrollToLab()">Start</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Sidebar untuk Tools -->
+            <div class="tools stockroom">
+                <h2>Stockroom</h2>
+                <!-- Dropdown untuk Indikator -->
+                <details>
+                    <summary>Indikator</summary>
+                    <div id="litmusmerah" class="tool" draggable="true" data-image="images/lakmus merah.png">Kertas Lakmus Merah</div>
+                    <div id="litmusbiru" class="tool" draggable="true" data-image="images/lakmus biru.png">Kertas Lakmus Biru</div>
+                    <div id="phenolphthalein" class="tool" draggable="true" data-image="images/fenolftalein.png">Fenolftalein</div>
+                    <div id="kunyit" class="tool" draggable="true" data-image="images/kunyit.png">Kunyit</div>
+                    <div id="mawar" class="tool" draggable="true" data-image="images/mawar.png">Bunga Mawar</div>
+                    <div id="geranium" class="tool" draggable="true" data-image="images/geranium.png">Geranium</div>
+                    <div id="kol" class="tool" draggable="true" data-image="images/kol.png">Kol Ungu</div>
+                </details>
+
+                <!-- Dropdown untuk Larutan -->
+                <details>
+                    <summary>Larutan</summary>
+                    <div id="HCl" class="tool" draggable="true" data-image="images/hcl.png">Asam Klorida (HCl)</div>
+                    <div id="NaOH" class="tool" draggable="true" data-image="images/naoh.png">Natrium Hidroksida (NaOH)</div>
+                    <div id="cuka" class="tool" draggable="true" data-image="images/cuka.png">Cuka (CH3COOH)</div>
+                    <div id="soda" class="tool" draggable="true" data-image="images/soda.png">Soda (NaHCO3)</div>
+                    <div id="lemon" class="tool" draggable="true" data-image="images/lemon.png">Air Lemon (C6H80)</div>
+                    <div id="deterjen" class="tool" draggable="true" data-image="images/deterjen.png">Air Deterjen</div>
+                    <div id="air" class="tool" draggable="true" data-image="images/air mineral.png">Air Mineral</div>
+                </details>
+            </div>
+
+            <!-- Workbench untuk percobaan -->
+            <div class="workbench">
+                <div class="experiment-layout">
+                    <!-- Kotak Indikator -->
+                    <div id="indicatorArea" class="drop-area">
+                        <h3>INDIKATOR</h3>
+                    </div>
+
+                    <!-- Simbol Tambah -->
+                    <div class="symbol symbol-plus"></div>
+
+                    <!-- Kotak Larutan -->
+                    <div id="solutionArea" class="drop-area">
+                        <h3>LARUTAN</h3>
+                    </div>
+
+                    <!-- Simbol Sama Dengan -->
+                    <div class="symbol symbol-equal"></div>
+
+                    <!-- Kotak Hasil -->
+                    <div id="resultArea" class="drop-area result-area">
+                        <h3>HASIL</h3>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </section>
+
+    <script>
+        // Script untuk scroll ke virtual lab
+        function scrollToLab() {
+            document.getElementById('labPage').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
