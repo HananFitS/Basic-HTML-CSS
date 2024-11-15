@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doofenshmirtz Lab - Virtual Lab</title>
+    <title>Doofenshmirtz Lab - Virtual Lab Guest</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="logout.js" defer></script>
 </head>
 <body>
     <!-- Welcome Section -->
@@ -14,19 +15,33 @@
             <h2>DR. DOOFENSHMIRTZ LAB</h2>
             <p>Lab ini berguna untuk menentukan suatu larutan itu basa atau asam.</p>
             <p>Terdiri dari beberapa pilihan indikator dan juga larutan yang dapat dicoba.</p>
-            <button onclick="scrollToLab()">Masuk ke Lab Virtual</button>
+            <button onclick="scrollToLab()">Masuk ke Lab Virtual as Guest</button>
         </div>
     </section>
+
 
     <!-- Virtual Lab Section -->
     <section class="lab-page" id="labPage">
         <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar-left">
-                <div class="navbar-title">Doofenshmirtz Lab</div>
-                <button onclick="scrollToLab()">Start</button>
+                <div class="navbar-title">DOOFENSHMIRTZ LAB</div>
+                <button onclick="scrollToLab()" class="start-btn">Start</button>
+            </div>
+            <div class="navbar-right">
+                <!-- Profile Picture and Dropdown -->
+                <div class="profile-dropdown">
+                    <img src="images/image 1.png" alt="Profile Picture" class="profile-pic">
+                    <span class="guest-name">Guest</span>
+                    <div class="dropdown-icon">▼</div>
+                    <div class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a id="logout" href="#logout">Logout</a>
+                    </div>
+                </div>
             </div>
         </nav>
+
 
         <div class="container">
             <!-- Sidebar untuk Tools -->
@@ -91,6 +106,9 @@
             document.getElementById('labPage').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
     <script src="script.js"></script>
+    <script src="logout.js"></script>
 </body>
 </html>

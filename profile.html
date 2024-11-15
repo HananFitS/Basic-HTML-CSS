@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="back-link">◀ Kembali ke Halaman Utama</a>
+    </nav>
+
+    <div class="profile-container">
+        <!-- Profile Picture and Username -->
+        <div class="profile-header">
+            <img src="images/image 1.png" alt="Profile Icon" class="profile-icon">
+            <p class="username">USERNAME</p>
+        </div>
+
+        <!-- Experiment History Section -->
+        <div id="history-container">
+            <!-- <div class="experiment-icon">
+                <img src="images/indicator.png" alt="Indicator">
+            </div>
+            <div class="symbol">+</div>
+            <div class="experiment-icon">
+                <img src="images/solution.png" alt="Solution">
+            </div>
+            <div class="symbol">=</div>
+            <div class="experiment-icon">
+                <img src="images/result.png" alt="Result">
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js"></script>
+    <script src="profile.js" defer></script>
+
+    <script>
+        // Konfigurasi Firebase Anda (gunakan konfigurasi dari Firebase Console)
+        const firebaseConfig = {
+            apiKey: "AIzaSyATbBn-2PXLiwsROSIdl-RTAcZRNBOlOGc",
+            authDomain: "tugas-pawm.firebaseapp.com",
+            projectId: "tugas-pawm",
+            storageBucket: "tugas-pawm.firebasestorage.app",
+            messagingSenderId: "32546229721",
+            appId: "1:32546229721:web:43be61960f4915c7a15dc8",
+            measurementId: "G-E7M2DH8XP5",
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+</body>
+</html>

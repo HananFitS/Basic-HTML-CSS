@@ -112,6 +112,81 @@ button:hover {
     background-color: #f1f1f1;
 }
 
+.start-btn {
+    background-color: white;
+    color: #333;
+    border: 1px solid #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background-color: #f1f1f1;
+}
+
+/* Right Section: Profile Picture and Dropdown */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.guest-name {
+    font-weight: bold;
+    margin-right: 8px;
+    color: #333;
+}
+
+.dropdown-icon {
+    font-size: 0.8em;
+    color: #333;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below the profile picture */
+    right: 0;
+    background-color: #ffffff;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 /* Menambahkan margin top pada lab-page agar tidak tertutupi oleh navbar */
 .lab-page {
     padding-top: 60px; /* Memberikan ruang agar tidak tertutup oleh navbar */
@@ -221,3 +296,6 @@ h3 {
     text-transform: uppercase;
     color: #777;
 }
+
+
+
