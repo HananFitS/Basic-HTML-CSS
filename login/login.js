@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import {getAuth,createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import {getAuth,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,30 +22,41 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+
 
 // Inputs
 
 // Submit
+// Submit
 const register = document.getElementById("register");
 register.addEventListener("click", function (event) {
-  
-
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
   event.preventDefault();
-  createUserWithEmailAndPassword(auth, username, password)
-    .then((userCredential) => {
-      // Signed up
+  signInWithEmailAndPassword(auth, username, password)
+    .then(async (userCredential) => {
+      // Signed in
       const user = userCredential.user;
-      alert("Creating Account...");
-      window.location.href = "index.html";
-      // ...
+      alert("Logging in...");
+
+      // Menyimpan data pengguna ke Firestore (misalnya waktu login terakhir)
+      try {
+        await setDoc(doc(db, "users", user.uid), {
+          lastLogin: new Date().toISOString(),
+          email: user.email,
+        }, { merge: true }); // Menggunakan merge agar tidak menimpa data yang sudah ada
+        console.log("Data pengguna berhasil disimpan ke Firestore.");
+      } catch (error) {
+        console.error("Gagal menyimpan data pengguna ke Firestore:", error);
+      }
+
+      // Arahkan ke halaman utama setelah login
+      window.location.href = "../main/index.html";
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
-      // ..
     });
 });
