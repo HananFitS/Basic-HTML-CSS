@@ -18,7 +18,7 @@ html, body {
 .welcome-page {
     width: 100vw; /* Menggunakan lebar penuh viewport */
     height: 100vh; /* Menggunakan tinggi penuh viewport */
-    background-image: url('images/lab-background.png'); /* Ganti dengan path gambar background */
+    background-image: url('../images/lab-background.png'); /* Ganti dengan path gambar background */
     background-size: cover;
     background-position: center;
     display: flex;

@@ -1,0 +1,166 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('images/lab-background.png'); /* Background gambar lab */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparansi background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.username {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.experiment-history {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.experiment-history h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.experiment-record {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.experiment-icon {
+    width: 80px; /* Ukuran tetap untuk kotak */
+    height: 80px; /* Ukuran tetap untuk kotak */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc; /* Border dashed untuk kotak */
+    border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box; /* Untuk memastikan padding atau border tidak mengubah ukuran */
+    background-color: #f8f9fa; /* Latar belakang agar tampak kontras */
+}
+
+.experiment-icon img {
+    width: 100%; /* Memenuhi lebar kotak */
+    height: 100%; /* Memenuhi tinggi kotak */
+    object-fit: contain; /* Memastikan gambar tidak terpotong */
+    padding: 5px; /* Memberikan jarak sedikit dari tepi kotak */
+}
+
+.symbol {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin: 0 10px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background-color: #007bff; /* Warna background navbar */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.back-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #d1d1d1;
+}
+
+/* Tambahkan padding-top untuk menghindari overlap konten dengan navbar */
+.profile-container {
+    margin-top: 60px; /* Sesuaikan dengan tinggi navbar */
+    background-color: rgba(255, 255, 255, 0.8); /* Transparansi background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Gaya lain pada halaman */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #333;
+}
+
+.username {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}

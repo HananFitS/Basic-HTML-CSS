@@ -53,7 +53,7 @@ register.addEventListener("click", function (event) {
       }
 
       // Arahkan ke halaman utama setelah login
-      window.location.href = "../main/index.html";
+      window.location.href = "../mainlogin/mainlogin.html";
     })
     .catch((error) => {
       const errorMessage = error.message;
