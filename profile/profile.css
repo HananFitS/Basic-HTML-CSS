@@ -4,7 +4,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-image: url('images/lab-background.png'); /* Background gambar lab */
+    background-image: url('../images/lab-background.png'); /* Background gambar lab */
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
