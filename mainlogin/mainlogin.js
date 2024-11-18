@@ -1,3 +1,44 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+// Firebase configuration (gunakan konfigurasi yang sama seperti di login.js)
+const firebaseConfig = {
+    apiKey: "AIzaSyATbBn-2PXLiwsROSIdl-RTAcZRNBOlOGc",
+    authDomain: "tugas-pawm.firebaseapp.com",
+    projectId: "tugas-pawm",
+    storageBucket: "tugas-pawm.firebasestorage.app",
+    messagingSenderId: "32546229721",
+    appId: "1:32546229721:web:43be61960f4915c7a15dc8",
+    measurementId: "G-E7M2DH8XP5"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+async function saveExperimentToFirestore(indicator, solution) {
+    const user = auth.currentUser;
+    if (user) {
+        try {
+            // Menyimpan data ke sub-koleksi "experiments" di dokumen pengguna
+            await addDoc(collection(db, "users", user.uid, "experiments"), {
+                indicator: indicator,
+                solution: solution,
+                timestamp: new Date() // Menyimpan waktu saat data dicatat
+            });
+            console.log("Data eksperimen berhasil disimpan ke Firestore.");
+        } catch (error) {
+            console.error("Error menyimpan data eksperimen:", error);
+        }
+    } else {
+        console.error("Pengguna tidak terautentikasi.");
+        alert("Silakan login untuk menyimpan data eksperimen.");
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const indicatorArea = document.getElementById('indicatorArea');
     const solutionArea = document.getElementById('solutionArea');
@@ -201,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultImg.style.height = '100px';
             resultArea.appendChild(resultImg);
 
-            saveExperimentHistory(indicator, solution, resultImagePath);
+            saveExperimentToFirestore(indicator, solution);
         } else {
             // Tampilkan pesan error jika kombinasi tidak ditemukan
             const errorText = document.createElement('p');
@@ -210,63 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
-    // Fungsi untuk menyimpan data percobaan ke localStorage
-    // function saveExperimentHistory(indicator, solution, resultImagePath) {
-    //     const indicatorImg = indicatorArea.querySelector('img');
-    //     const solutionImg = solutionArea.querySelector('img');
-    
-    //     // Cek apakah gambar ditemukan di area indikator dan larutan
-    //     if (!indicatorImg || !solutionImg) {
-    //         console.warn("Gambar tidak ditemukan di area indikator atau larutan");
-    //         return;
-    //     }
-    
-    //     const experimentData = {
-    //         indicator: indicator,
-    //         indicatorImage: indicatorImg.src,
-    //         solution: solution,
-    //         solutionImage: solutionImg.src,
-    //         resultImage: resultImagePath
-    //     };
-    
-    //     console.log("Menyimpan data eksperimen:", experimentData);
-    
-    //     const history = JSON.parse(localStorage.getItem('experimentHistory')) || [];
-    //     history.push(experimentData);
-    //     localStorage.setItem('experimentHistory', JSON.stringify(history));
-    // }
-    
-    //     // Ambil referensi ke Firestore
-    // const db = firebase.firestore();
-
-    // Fungsi untuk menyimpan eksperimen ke Firestore berdasarkan UID pengguna
-    // function saveExperimentToFirestore(indicator, solution, result) {
-    //     const user = firebase.auth().currentUser;
-
-    //     if (user) {
-    //         const experimentData = {
-    //             indicator: indicator,
-    //             solution: solution,
-    //             result: result,
-    //             timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    //         };
-
-    //         db.collection("users").doc(user.uid).collection("experiments")
-    //             .add(experimentData)
-    //             .then(() => {
-    //                 console.log("Eksperimen berhasil disimpan untuk pengguna:", user.uid);
-    //             })
-    //             .catch((error) => {
-    //                 console.error("Error menyimpan eksperimen:", error);
-    //             });
-    //     } else {
-    //         console.error("Pengguna tidak terautentikasi.");
-    //     }
-    // }
-
-    // Contoh pemanggilan fungsi
-    // saveExperimentToFirestore('litmus merah', 'HCl', 'merah');
 
     
 });

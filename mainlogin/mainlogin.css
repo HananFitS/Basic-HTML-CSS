@@ -1,0 +1,301 @@
+/* Reset semua elemen untuk memastikan tidak ada margin atau padding default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mengatur tinggi dan lebar penuh halaman */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth; /* Membuat scroll ke bawah lebih halus */
+    overflow-x: hidden; /* Mencegah overflow horizontal */
+}
+
+/* Welcome Section */
+.welcome-page {
+    width: 100vw; /* Menggunakan lebar penuh viewport */
+    height: 100vh; /* Menggunakan tinggi penuh viewport */
+    background-image: url('images/lab-background.png'); /* Ganti dengan path gambar background */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-content {
+    background-color: rgba(255, 255, 255, 0.85); /* Latar belakang dengan sedikit transparansi */
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #007bff;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: #555;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Navbar Tetap di Atas (Lebar Penuh dan Konsisten) */
+.navbar {
+    position: fixed; /* Posisi tetap di atas saat scroll */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px; /* Tinggi navbar */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Memastikan navbar berada di atas elemen lain */
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.navbar-left button {
+    background-color: white;
+    color: #007bff;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 20px;
+    margin-top: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navbar-left button:hover {
+    background-color: #f1f1f1;
+}
+
+.start-btn {
+    background-color: white;
+    color: #333;
+    border: 1px solid #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.start-btn:hover {
+    background-color: #f1f1f1;
+}
+
+/* Right Section: Profile Picture and Dropdown */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.guest-name {
+    font-weight: bold;
+    margin-right: 8px;
+    color: #333;
+}
+
+.dropdown-icon {
+    font-size: 0.8em;
+    color: #333;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position below the profile picture */
+    right: 0;
+    background-color: #ffffff;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    border-radius: 8px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Menambahkan margin top pada lab-page agar tidak tertutupi oleh navbar */
+.lab-page {
+    padding-top: 60px; /* Memberikan ruang agar tidak tertutup oleh navbar */
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh; /* Pastikan lab-page setidaknya setinggi layar */
+}
+
+/* Mengatur container lab */
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1400px;
+    min-height: 80vh;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px auto; /* Memastikan kontainer selalu berada di tengah */
+}
+
+/* Sidebar */
+.stockroom {
+    flex: 1; /* Mengatur stockroom agar menempati bagian kiri kontainer */
+    background-color: #f1f1f1;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+}
+
+.tools h2, .tools h3 {
+    text-align: center;
+}
+
+.tool {
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+.tool:hover {
+    background-color: #eaeaea;
+}
+
+/* Workbench */
+.workbench {
+    flex: 3; /* Mengatur workbench agar menempati bagian kanan kontainer, lebih besar dari stockroom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #f8f9fa;
+}
+
+.experiment-layout {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    grid-template-rows: auto;
+    gap: 40px; /* Menambah gap antara kotak */
+    justify-items: center;
+    align-items: center;
+}
+
+.drop-area {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+}
+
+#indicatorArea {
+    border-color: #ff7f7f; /* Warna merah untuk area indikator */
+}
+
+#solutionArea {
+    border-color: #7fbfff; /* Warna biru untuk area larutan */
+}
+
+.result-area {
+    border-color: #007bff; /* Warna untuk area hasil */
+}
+
+.symbol {
+    font-size: 3em;
+    font-weight: bold;
+    color: #555;
+}
+
+.symbol-plus::after {
+    content: "+";
+}
+
+.symbol-equal::after {
+    content: "=";
+}
+
+h3 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: #777;
+}
+
+
+

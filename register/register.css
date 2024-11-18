@@ -15,7 +15,7 @@ html, body {
 .login-page {
     width: 100vw;
     height: 100vh;
-    background-image: url('images/lab-background.png');
+    background-image: url('../images/lab-background.png');
     background-size: cover;
     background-position: center;
     display: flex;
