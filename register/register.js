@@ -38,7 +38,7 @@ register.addEventListener("click", function (event) {
       // Signed up
       const user = userCredential.user;
       alert("Creating Account...");
-      window.location.href = "../main/index.html";
+      window.location.href = "../login/login.html";
       // ...
     })
     .catch((error) => {
