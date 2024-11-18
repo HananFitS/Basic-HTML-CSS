@@ -31,7 +31,7 @@ logout.addEventListener("click", function (event) {
   signOut(auth).then(() => {
     // Sign-out successful.
     alert("Logout succesful...");
-    window.location.href ="login.html";
+    window.location.href ="../login/login.html";
   }).catch((error) => {
     // An error happened.
     const errorCode = error.code;
