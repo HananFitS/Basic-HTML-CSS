@@ -101,4 +101,19 @@ html, body {
     text-decoration: underline;
 }
 
+.already-have-account {
+    margin-top: 10px; 
+    font-size: 14px; 
+    color: #555; 
+}
 
+.already-have-account a {
+    text-decoration: none; 
+    color: #007bff; 
+    transition: color 0.3s; 
+}
+
+.already-have-account a:hover {
+    color: #0056b3; 
+    text-decoration: underline; 
+}
